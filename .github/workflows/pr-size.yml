@@ -18,6 +18,7 @@ jobs:
       - name: Compute diff size, apply label, and enforce limit
         uses: actions/github-script@v8
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const owner = context.repo.owner;
             const repo  = context.repo.repo;

@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Setup Modern Rust Toolchain
         uses: dtolnay/rust-toolchain@stable
@@ -21,9 +21,10 @@ jobs:
           targets: wasm32-unknown-unknown
 
       - name: Install stellar-cli
-        uses: stellar/setup-stellar-cli@v1
-        with:
-          version: 21.6.0
+        run: |
+          curl -sSL https://github.com/stellar/stellar-cli/releases/download/v21.6.0/stellar-cli-21.6.0-x86_64-unknown-linux-gnu.tar.gz \
+            | tar -xz -C /usr/local/bin
+          stellar --version
 
       - name: Setup Node.js
         uses: actions/setup-node@v6

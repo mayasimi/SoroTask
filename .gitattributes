@@ -1,0 +1,25 @@
+# Enforce LF line endings for all text files on checkout
+# This prevents CRLF/LF mismatches that break ESLint's linebreak-style rule on CI
+
+* text=auto eol=lf
+
+# Explicitly LF for source files
+*.js    text eol=lf
+*.ts    text eol=lf
+*.tsx   text eol=lf
+*.jsx   text eol=lf
+*.json  text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+*.md    text eol=lf
+*.toml  text eol=lf
+*.sh    text eol=lf
+*.rs    text eol=lf
+*.css   text eol=lf
+*.html  text eol=lf
+
+# Binary files — no line ending conversion
+*.png   binary
+*.jpg   binary
+*.ico   binary
+*.wasm  binary
